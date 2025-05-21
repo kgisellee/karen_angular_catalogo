@@ -1,0 +1,59 @@
+<!-- <div>
+    <a routerLink="/catalog-listing">Atras</a>
+    
+    <div>{{ movie.name }}</div>
+    <div>{{ movie.year }}</div>
+    <div>{{ movie.synopsis }}</div>
+    <div><img [src]="movie.imageLink" alt="Portada de la Pelicula"></div>
+
+    <a routerLink="/movie-form/{{movie.id}}">Editar</a>
+    
+    <button (click)="openModal()">Eliminar película</button>
+
+    <div class="modal-backdrop" *ngIf="modal">
+    <div class="modal">
+        <h2>¿Estás segura de que deseas eliminar esta película?</h2>
+        <button (click)="deleteMovie()">Eliminar</button>
+        <button (click)="closeModal()">Cancelar</button>
+    </div>
+    </div>
+</div> -->
+
+<div class="movie-detail">
+  <!-- Enlace para regresar -->
+  <a routerLink="/catalog-listing" class="back-link">← Atrás</a>
+
+  <!-- Información de la película -->
+  <h2>{{ movie.name }}</h2>
+  <p><strong>Año:</strong> {{ movie.year }}</p>
+  <p><strong>Sinopsis:</strong> {{ movie.synopsis }}</p>
+  
+  <!-- Imagen -->
+  <img [src]="movie.imageLink" alt="Portada de la Película" class="movie-image">
+
+  <!-- Acciones -->
+  <div class="actions">
+    <a [routerLink]="'/movie-form/' + movie.id" class="edit-link">Editar</a>
+    <button (click)="openModal()" class="delete-button">Eliminar película</button>
+  </div>
+</div>
+
+<!-- Modal de confirmación -->
+<div class="modal-backdrop" *ngIf="modal">
+  <div class="modal">
+    <h2>¿Estás segura de que deseas eliminar esta película?</h2>
+    <div class="modal-actions">
+      <button (click)="deleteMovie()" class="confirm">Eliminar</button>
+      <button (click)="closeModal()" class="cancel">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-backdrop" *ngIf="headOutModal">
+  <div class="modal">
+    <h2>Sea eliminado la pelicua</h2>
+    <div class="modal-actions">
+      <button (click)="goBack()" class="confirm">Congirmar</button>
+    </div>
+  </div>
+</div>

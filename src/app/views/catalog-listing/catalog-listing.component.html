@@ -1,0 +1,21 @@
+<div class="catalog-listing">
+  <h2>Películas</h2>
+  <br>
+  <a routerLink="/movie-form/0" class="btn">Nueva Pelicula</a>
+  <br>
+  <br>
+  <ul>
+    <li *ngFor="let movie of movies">
+      <div class="movie-card">
+        <a [routerLink]="['/movie-detail/' + movie.id]">
+          <div class="">
+            <div class="movie-title">{{ movie.name }}</div>
+            <div>Anio: {{ movie.year }}</div>
+            <div>Sinopsis: {{ movie.synopsis }}</div>
+            <div><img [src]="movie.imageLink" alt="Portada de la Pelicula" class="movie-image"></div>
+          </div>
+        </a>
+      </div>
+    </li>
+  </ul>
+</div>
